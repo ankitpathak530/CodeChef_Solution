@@ -6,6 +6,27 @@ class Solution {
         return result;
     }
     
+    private void solve(int start, int n, int k, List<Integer> temp){
+        
+        if(k == 0){
+            result.add(new ArrayList<>(temp));
+            return;
+        }
+        
+        if(start > n){
+            return;
+        }
+        
+        
+        
+            for(int i=start; i<=n; i++){
+                temp.add(i);
+                solve(i+1, n, k-1, temp);
+                temp.remove(temp.size()-1);
+            }
+    }
+    
+    /*
     private void solve(int start, int n, int k, List<Integer> temp) {
         if (k == 0) {
             result.add(new ArrayList<>(temp));
@@ -22,4 +43,5 @@ class Solution {
         // If we do not take 'start'
         solve(start + 1, n, k, temp);
     }
+    */
 }
