@@ -24,7 +24,9 @@ class Solution {
             List<Integer> element = res[i];
             // i -> 3    elemstSize- 6
             AtomicInteger counter = new AtomicInteger();
-            final Collection<List<Integer>> list =   element.stream().collect(Collectors.groupingBy(l -> counter.getAndIncrement() / i))
+            System.out.println("Counter: - "+counter);
+            
+            final Collection<List<Integer>> list =   element.stream().collect(Collectors.groupingBy(e -> counter.getAndIncrement() / i))
                             .values(); 
 
             for(List<Integer> l : list){
